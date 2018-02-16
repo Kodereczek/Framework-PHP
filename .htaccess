@@ -1,0 +1,10 @@
+RewriteEngine On
+RewriteBase /
+
+RewriteCond %{HTTP_HOST} ^nazwa.pl [NC]
+RewriteRule (.*) http://www.nazwa.pl/$1 [L,R=301]
+
+RewriteCond %{REQUEST_URI} ![a-zA-Z0-9_-]+\.(jpe?g|png|gif|css|js)$ [NC]
+RewriteRule ^.*$ index.php [L]
+
+ErrorDocument 300 /
